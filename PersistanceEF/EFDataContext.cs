@@ -16,20 +16,6 @@ namespace PersistanceEF
 
         private EFDataContext(DbContextOptions<EFDataContext> options) : base(options) { }
 
-        //public EFDataContext()
-        //: base("name=MyAppContext")
-        //{
-        //    //this.Configuration.LazyLoadingEnabled = false;
-        //}
-
-        //public EFDataContext(DbConnection connection): base(connection)
-        //{
-        //    //this.Configuration.LazyLoadingEnabled = false;
-        //}
-
-
-
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -48,5 +34,6 @@ namespace PersistanceEF
             }
         }
     }
+
 }
 
