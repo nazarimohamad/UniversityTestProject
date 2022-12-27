@@ -2,12 +2,12 @@
 using SpecTest;
 using System.Linq;
 using PersistanceEF;
+using Entities.Course;
+using Services.Course;
 using TestTools.Course;
 using FluentAssertions;
 using SpecTest.Infrastractures;
 using Services.Course.Contract.Dtos;
-using Services.Course;
-using Entities.Course;
 
 namespace SpectTest.Course.AddCourse
 {
@@ -17,21 +17,27 @@ namespace SpectTest.Course.AddCourse
         IWantTo = "یک درس تعریف کنم"
     )]
 
-    [Scenario(title: "ثبت یک درس")]
-    public class Successful : EFDataContextDatabaseFixture
+    [Scenario(title: "ثبت یک درس با عنوان تکراری")]
+    public class Failed : EFDataContextDatabaseFixture
     {
         private readonly EFDataContext _dbContext;
-        private readonly  CourseAppService _sut;
+        private readonly CourseAppService _sut;
         private AddCourseDto _dto;
 
-        public Successful()
+        public Failed()
         {
             _dbContext = CreateDataContext();
             _sut = CourseFactory.GenerateServices(_dbContext);
         }
 
-        [Given(description: "هیج درسی در فهرست درس های دانشگاه وجود ندارد")]
-        public void Given() { }
+        [Given(description: "یک درس با عنوان فیزیک در فهرست درس های " +
+            "دانشگاه وجود دارد")]
+        public void Given()
+        {
+            _dto = CourseFactory.GenerateCourseDto();
+
+            _sut.Add(_dto);
+        }
 
         [When(description: "یک درس با عنوان فیزیک را اضافه میکنیم")]
         public void When()
@@ -41,12 +47,10 @@ namespace SpectTest.Course.AddCourse
             _sut.Add(_dto);
         }
 
-        [Then(description: "باید یک درس با عنوان فیزیک" +
-            " در فهرست درس های دانشگاه وجود داشته باشد")]
+        [Then(description: "تنها یک درس با عنوان فیزیک در فهرست درس های دانشگاه" +
+            " وحود دارد و خطای درس تکراری است رخ میدهد")]
         public void Then()
         {
-            var actual = _dbContext.Set<CourseModel>().First();
-            actual.Title.Should().Be(_dto.Title);
         }
 
         [Fact]

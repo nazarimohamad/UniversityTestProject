@@ -2,6 +2,7 @@
 using Entities.Course;
 using Services.Course.Contract;
 using Microsoft.EntityFrameworkCore;
+using Services.Course.Contract.Dtos;
 
 namespace PersistanceEF.Course
 {
@@ -16,6 +17,11 @@ namespace PersistanceEF.Course
         public void Add(CourseModel course)
         {
             _course.Add(course);
+        }
+
+        public bool IsExist(string title)
+        {
+            return _course.Any(_ => _.Title == title);
         }
     }
 }

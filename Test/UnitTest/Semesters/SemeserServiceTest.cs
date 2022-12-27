@@ -39,7 +39,7 @@ namespace UnitTest.Semesters
         }
 
         [Fact]
-        public void Failed_to_add_duplicated_semester_properly()
+        public void Failed_to_add_duplicated_semester()
         {
             var semester = SemesterFactory.GenerateSemester();
             _dbContext.Manipulate(_ => _.Add(semester));

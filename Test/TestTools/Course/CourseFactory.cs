@@ -1,4 +1,5 @@
 ﻿using System;
+using Entities.Course;
 using PersistanceEF;
 using PersistanceEF.Course;
 using Services.Course;
@@ -18,6 +19,14 @@ namespace TestTools.Course
         public static AddCourseDto GenerateCourseDto()
         {
             return new AddCourseDto
+            {
+                Title = "فیزیک"
+            };
+        }
+
+        public static object GenerateCourse()
+        {
+            return new CourseModel
             {
                 Title = "فیزیک"
             };

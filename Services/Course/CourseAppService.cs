@@ -2,6 +2,7 @@
 using Services.Course.Contract;
 using Services.SharedContracts;
 using Services.Course.Contract.Dtos;
+using Services.Course.Exceptions;
 
 namespace Services.Course
 {
@@ -17,8 +18,17 @@ namespace Services.Course
 
         public void Add(AddCourseDto dto)
         {
+            StopIfCourseIsDuplicated(dto);
             _repository.Add(GenerateCourse(dto));
             _unitOfWork.Compelete();
+        }
+
+        private void StopIfCourseIsDuplicated(AddCourseDto dto)
+        {
+            if (_repository.IsExist(dto.Title))
+            {
+                throw new DuplicatedCourseException();
+            }
         }
 
         private CourseModel GenerateCourse(AddCourseDto dto)

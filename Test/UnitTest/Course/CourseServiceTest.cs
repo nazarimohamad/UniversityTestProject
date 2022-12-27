@@ -6,6 +6,8 @@ using Services.Course;
 using FluentAssertions;
 using TestTools.Course;
 using UnitTest.Infrastructure;
+using System;
+using Services.Course.Exceptions;
 
 namespace UnitTest.Course
 {
@@ -28,6 +30,20 @@ namespace UnitTest.Course
 
             var actual = _dbContext.Set<CourseModel>().First();
             actual.Title.Should().Be(_dto.Title);
+        }
+
+
+        [Fact]
+        public void Failed_to_add_duplicated_course()
+        {
+            var _course = CourseFactory.GenerateCourse();
+            _dbContext.Manipulate(_ => _.Add(_course));
+
+            var _duplicatedCourseDto = CourseFactory.GenerateCourseDto();
+            Action actual = () => _sut.Add(_duplicatedCourseDto);
+
+            actual.Should().ThrowExactly<DuplicatedCourseException>();
+            
         }
     }
 }
