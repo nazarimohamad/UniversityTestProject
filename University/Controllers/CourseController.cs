@@ -14,15 +14,21 @@ namespace University.Controllers
         }
 
          [HttpPost()]
-         public void AddCourse(AddCourseDto dto)
+         public void AddCourse([FromBody]AddCourseDto dto)
          {
              _service.Add(dto);
          }
 
         [HttpPut()]
-        public void EditCourse(EditCourseDto dto)
+        public void EditCourse([FromBody]EditCourseDto dto)
         {
             _service.Edit(dto);
+        }
+
+        [HttpDelete()]
+        public void DeleteCourse(int id)
+        {
+            _service.Delete(id);
         }
     }
 }

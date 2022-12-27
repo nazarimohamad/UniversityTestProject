@@ -30,6 +30,26 @@ namespace Services.Course
             _unitOfWork.Compelete();
         }
 
+        public void Delete(int idForDelete)
+        {
+            StopIfThereIsNoCourse(idForDelete);
+            _repository.Delete(FindCourseById(idForDelete));
+            _unitOfWork.Compelete();
+        }
+
+        private void StopIfThereIsNoCourse(int idForDelete)
+        {
+            if (FindCourseById(idForDelete) == null)
+            {
+                throw new ThereIsNoCourseForDeleteException();
+            }
+        }
+
+        private CourseModel FindCourseById(int id)
+        {
+            return _repository.Find(id);
+        }
+
         private EditedCourseModel GenerateEditedModel(EditCourseDto editedDto)
         {
             return new EditedCourseModel

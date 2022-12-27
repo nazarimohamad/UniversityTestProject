@@ -26,9 +26,19 @@ namespace PersistanceEF.Course
             findedCourseForEdit!.Title = editedCourseModel.Title;
         }
 
+        public void Delete(CourseModel course)
+        {
+            _course.Remove(course!);
+        }
+
         public bool IsExist(string title)
         {
             return _course.Any(_ => _.Title == title);
+        }
+
+        public CourseModel Find(int id)
+        {
+            return _course.SingleOrDefault(_ => _.Id == id)!; 
         }
     }
 }

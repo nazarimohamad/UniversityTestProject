@@ -19,6 +19,12 @@ namespace University.Controllers
         {
             _service.Add(dto);
         }
+
+        [HttpDelete]
+        public void Delete(int id)
+        {
+            _service.Delete(id);
+        }
     }
 }
 

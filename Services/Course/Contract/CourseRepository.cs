@@ -8,5 +8,7 @@ namespace Services.Course.Contract
         public void Add(CourseModel course);
         bool IsExist(string title);
         void Edit(EditedCourseModel editedCourseModel);
+        void Delete(CourseModel course);
+        CourseModel Find(int id);
     }
 }

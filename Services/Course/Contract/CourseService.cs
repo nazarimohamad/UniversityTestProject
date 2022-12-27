@@ -6,5 +6,6 @@ namespace Services.Course.Contract
     {
         public void Add(AddCourseDto dto);
         void Edit(EditCourseDto dto);
+        void Delete(int id);
     }
 }
