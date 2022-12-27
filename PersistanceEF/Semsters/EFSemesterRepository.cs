@@ -18,6 +18,16 @@ namespace PersistanceEF.Semsters
             _semsters.Add(semester);
         }
 
+        public void Delete(SemesterModel model)
+        {
+            _semsters.Remove(model);
+        }
+
+        public SemesterModel? Find(int id)
+        {
+            return _semsters.SingleOrDefault(_ => _.Id == id);
+        }
+
         public bool isExist(int number, int year)
         {
             return _semsters.Any(_ => _.Number == number &&

@@ -1,13 +1,10 @@
-﻿using System;
-using System.Linq;
-using Entities.Semesters;
-using FluentAssertions;
-using PersistanceEF;
-using Services.Semester.Contract.Dtos;
+﻿using Xunit;
 using SpecTest;
-using SpecTest.Infrastractures;
+using PersistanceEF;
 using TestTools.Semester;
-using Xunit;
+using SpecTest.Infrastractures;
+using Services.Semester.Contract.Dtos;
+using Services.Semester;
 
 namespace SpectTest.Semester.AddSemester
 {
@@ -21,29 +18,29 @@ namespace SpectTest.Semester.AddSemester
     public class Failed : EFDataContextDatabaseFixture
     {
         private readonly EFDataContext _dbContext;
+        private readonly SemesterAppService _sut;
         private AddSemesterDto _dto;
 
         public Failed()
         {
             _dbContext = CreateDataContext();
+            _sut = SemesterFactory.GenerateServices(_dbContext);
         }
 
         [Given(description: "یک ترم با شماره ی ۱ و سال ۱۴۰۰ در فهرست ترم های دانشگاه وجود دارد")]
         public void Given()
         {
             _dto = SemesterFactory.GenerateSemesterDto();
-            var sut = SemesterFactory.GenerateServices(_dbContext);
 
-            sut.Add(_dto);
+            _sut.Add(_dto);
         }
 
         [When(description: "یک ترم به شماره ی ۱ و سال ۱۴۰۰ را اضافه میکنیم")]
         public void When()
         {
             _dto = SemesterFactory.GenerateSemesterDto();
-            var sut = SemesterFactory.GenerateServices(_dbContext);
 
-            sut.Add(_dto);
+            _sut.Add(_dto);
         }
 
         [Then(description: "باید تنها یک ترم در فهرست ترم های دانشگاه" +

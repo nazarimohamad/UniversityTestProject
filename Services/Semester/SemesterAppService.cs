@@ -24,6 +24,27 @@ namespace Services.Semester
             _unitOfWork.Compelete();
         }
 
+        public void Delete(int id)
+        {
+            var findedSemster = FindSemesterById(id);
+            StopIfThereIsNoSemester(findedSemster);
+            _semsters.Delete(findedSemster);
+            _unitOfWork.Compelete();
+        }
+
+        private void StopIfThereIsNoSemester(SemesterModel semesterModel)
+        {
+            if (semesterModel == null)
+            {
+                throw new ThereIsNoSemesterException();
+            }
+        }
+
+        private SemesterModel? FindSemesterById(int id)
+        {
+            return _semsters.Find(id);
+        }
+
         private void StopIfSemesterExist(AddSemesterDto dto)
         {
             if(_semsters.isExist(dto.Number, dto.Year))

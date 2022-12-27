@@ -6,6 +6,7 @@ using Entities.Semesters;
 using TestTools.Semester;
 using SpecTest.Infrastractures;
 using Services.Semester.Contract.Dtos;
+using Services.Semester;
 
 namespace SpecTest.Semester.AddSemester
 {
@@ -19,11 +20,13 @@ namespace SpecTest.Semester.AddSemester
     public class Successful : EFDataContextDatabaseFixture
     {
         private readonly EFDataContext _dbContext;
+        private readonly SemesterAppService _sut;
         private AddSemesterDto _dto;
 
         public Successful()
         {
             _dbContext = CreateDataContext();
+            _sut = SemesterFactory.GenerateServices(_dbContext);
         }
 
         [Given(description: "هیج ترمی در فهرست ترم های دانشگاه وجود ندارد")]
@@ -33,9 +36,8 @@ namespace SpecTest.Semester.AddSemester
         public void When()
         {
             _dto = SemesterFactory.GenerateSemesterDto();
-            var sut = SemesterFactory.GenerateServices(_dbContext);
 
-            sut.Add(_dto);
+            _sut.Add(_dto);
         }
 
         [Then(description: "باید یک ترم به شماره ی ۱ و سال ۱۴۰۰ در فهرست" +

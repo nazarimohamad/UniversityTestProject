@@ -51,6 +51,23 @@ namespace UnitTest.Semesters
             actual.Should().ThrowExactly<DuplicateSemesterException>();
 
         }
+
+
+        [Fact]
+        public void Delete_semester_properly()
+        {
+            var semester = SemesterFactory.GenerateSemester();
+            _dbContext.Manipulate(_ => _.Add(semester));
+            var findedSemster = _dbContext.Set<SemesterModel>().First();
+            var idForDelete = findedSemster.Id;
+
+            _sut.Delete(idForDelete);
+
+            var _findedSemsterAfterDelete = _dbContext.Set<SemesterModel>()
+                                    .SingleOrDefault(_ => _.Id == idForDelete);
+
+            _findedSemsterAfterDelete.Should().BeNull();
+        }
     }
 }
 
