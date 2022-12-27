@@ -1,6 +1,7 @@
 ﻿using Entities.Semesters;
 using Services.SharedContracts;
 using Services.Semester.Contract;
+using Services.Semester.Exceptions;
 using Services.Semester.Contract.Dtos;
 
 namespace Services.Semester
@@ -18,9 +19,17 @@ namespace Services.Semester
 
         public void Add(AddSemesterDto dto)
         {
-            var model = GenerateSemesterModel(dto);
-            _semsters.Add(model);
+            StopIfSemesterExist(dto);
+            _semsters.Add(GenerateSemesterModel(dto));
             _unitOfWork.Compelete();
+        }
+
+        private void StopIfSemesterExist(AddSemesterDto dto)
+        {
+            if(_semsters.isExist(dto.Number, dto.Year))
+            {
+                throw new DuplicateSemesterException();
+            }
         }
 
         private SemesterModel GenerateSemesterModel(AddSemesterDto dto)

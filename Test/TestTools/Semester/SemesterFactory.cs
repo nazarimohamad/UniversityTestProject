@@ -3,6 +3,7 @@ using PersistanceEF;
 using Services.Semester;
 using PersistanceEF.Semsters;
 using Services.Semester.Contract.Dtos;
+using Entities.Semesters;
 
 namespace TestTools.Semester
 {
@@ -10,6 +11,13 @@ namespace TestTools.Semester
     {
         public SemesterFactory()
         {
+        }
+
+        public static SemesterAppService GenerateServices(EFDataContext dbContext)
+        {
+            var unitOfWork = new EFUnitOfWork(dbContext);
+            var semsterRepository = new EFSemesterRepository(dbContext);
+            return new SemesterAppService(semsters: semsterRepository, unitOfWork: unitOfWork);
         }
 
         public static AddSemesterDto GenerateSemesterDto()
@@ -21,11 +29,13 @@ namespace TestTools.Semester
             };
         }
 
-        public static SemesterAppService GenerateServices(EFDataContext dbContext)
+        public static SemesterModel GenerateSemester()
         {
-            var unitOfWork = new EFUnitOfWork(dbContext);
-            var semsterRepository = new EFSemesterRepository(dbContext);
-            return new SemesterAppService(semsters: semsterRepository, unitOfWork: unitOfWork);
+            return new SemesterModel
+            {
+                Number = 1,
+                Year = 1400
+            };
         }
     }
 }

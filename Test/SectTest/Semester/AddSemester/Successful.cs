@@ -10,10 +10,10 @@ using Services.Semester.Contract.Dtos;
 namespace SpecTest.Semester.AddSemester
 {
     [Story(title: "ثبت یکت ترم ",
-    AsA = "سرپرست دانشگاه",
-    InOrderTo = "کلاس های مربوط به آن ترم را مشخص کنم",
-    IWantTo = "یک ترم تعریف کنم"
-)]
+        AsA = "سرپرست دانشگاه",
+        InOrderTo = "کلاس های مربوط به آن ترم را مشخص کنم",
+        IWantTo = "یک ترم تعریف کنم"
+    )]
 
     [Scenario(title: "ثبت یک ترم")]
     public class Successful : EFDataContextDatabaseFixture

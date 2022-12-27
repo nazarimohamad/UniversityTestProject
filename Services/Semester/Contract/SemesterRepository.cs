@@ -5,6 +5,7 @@ namespace Services.Semester.Contract
     public interface SemesterRepository
     {
         public void Add(SemesterModel model);
+        bool isExist(int number, int year);
     }
 }
 

@@ -1,7 +1,6 @@
 ﻿using Entities.Semesters;
-using Microsoft.EntityFrameworkCore;
-using PersistanceEF;
 using Services.Semester.Contract;
+using Microsoft.EntityFrameworkCore;
 
 namespace PersistanceEF.Semsters
 {
@@ -17,6 +16,12 @@ namespace PersistanceEF.Semsters
         public void Add(SemesterModel semester)
         {
             _semsters.Add(semester);
+        }
+
+        public bool isExist(int number, int year)
+        {
+            return _semsters.Any(_ => _.Number == number &&
+                                      _.Year == year);
         }
     }
 }

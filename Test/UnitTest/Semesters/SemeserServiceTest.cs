@@ -6,6 +6,8 @@ using Services.Semester;
 using Entities.Semesters;
 using TestTools.Semester;
 using UnitTest.Infrastructure;
+using Services.Semester.Exceptions;
+using System;
 
 namespace UnitTest.Semesters
 
@@ -31,9 +33,23 @@ namespace UnitTest.Semesters
 
             _sut.Add(dto);
 
-            var actualPerson = _dbContext.Set<SemesterModel>().First();
-            actualPerson.Number.Should().Be(dto.Number);
-            actualPerson.Year.Should().Be(dto.Year);
+            var actual = _dbContext.Set<SemesterModel>().First();
+            actual.Number.Should().Be(dto.Number);
+            actual.Year.Should().Be(dto.Year);
+        }
+
+        [Fact]
+        public void Failed_to_add_duplicated_semester_properly()
+        {
+            var semester = SemesterFactory.GenerateSemester();
+            _dbContext.Manipulate(_ => _.Add(semester));
+
+            var duplicateSemesterDto = SemesterFactory.GenerateSemesterDto();
+
+            Action actual = () => _sut.Add(duplicateSemesterDto);
+
+            actual.Should().ThrowExactly<DuplicateSemesterException>();
+
         }
     }
 }
