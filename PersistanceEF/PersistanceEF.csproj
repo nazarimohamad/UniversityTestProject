@@ -10,7 +10,6 @@
     <None Remove="Microsoft.EntityFrameworkCore.SqlServer" />
     <None Remove="Microsoft.EntityFrameworkCore" />
     <None Remove="Microsoft.EntityFrameworkCore.Relational" />
-    <None Remove="Semster\" />
     <None Remove="Course\" />
   </ItemGroup>
   <ItemGroup>
@@ -23,7 +22,6 @@
     <ProjectReference Include="..\Entities\Entities.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Semster\" />
     <Folder Include="Course\" />
   </ItemGroup>
 </Project>

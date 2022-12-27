@@ -7,5 +7,6 @@ namespace Services.Course.Contract
     {
         public void Add(CourseModel course);
         bool IsExist(string title);
+        void Edit(EditedCourseModel editedCourseModel);
     }
 }

@@ -34,7 +34,7 @@ namespace SpectTest.Course.AddCourse
             "دانشگاه وجود دارد")]
         public void Given()
         {
-            _dto = CourseFactory.GenerateCourseDto();
+            _dto = CourseFactory.GenerateAddCourseDto();
 
             _sut.Add(_dto);
         }
@@ -42,7 +42,7 @@ namespace SpectTest.Course.AddCourse
         [When(description: "یک درس با عنوان فیزیک را اضافه میکنیم")]
         public void When()
         {
-            _dto = CourseFactory.GenerateCourseDto();
+            _dto = CourseFactory.GenerateAddCourseDto();
 
             _sut.Add(_dto);
         }

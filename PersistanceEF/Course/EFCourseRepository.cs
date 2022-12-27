@@ -19,6 +19,13 @@ namespace PersistanceEF.Course
             _course.Add(course);
         }
 
+        public void Edit(EditedCourseModel editedCourseModel)
+        {
+            var findedCourseForEdit = _course.SingleOrDefault
+                                            (_ => _.Id == editedCourseModel.Id);
+            findedCourseForEdit!.Title = editedCourseModel.Title;
+        }
+
         public bool IsExist(string title)
         {
             return _course.Any(_ => _.Title == title);

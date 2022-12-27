@@ -24,7 +24,7 @@ namespace UnitTest.Course
         [Fact]
         public void Add_course_properly()
         {
-            var _dto = CourseFactory.GenerateCourseDto();
+            var _dto = CourseFactory.GenerateAddCourseDto();
 
             _sut.Add(_dto);
 
@@ -39,7 +39,7 @@ namespace UnitTest.Course
             var _course = CourseFactory.GenerateCourse();
             _dbContext.Manipulate(_ => _.Add(_course));
 
-            var _duplicatedCourseDto = CourseFactory.GenerateCourseDto();
+            var _duplicatedCourseDto = CourseFactory.GenerateAddCourseDto();
             Action actual = () => _sut.Add(_duplicatedCourseDto);
 
             actual.Should().ThrowExactly<DuplicatedCourseException>();

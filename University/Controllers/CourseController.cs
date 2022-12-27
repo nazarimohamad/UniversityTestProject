@@ -18,6 +18,12 @@ namespace University.Controllers
          {
              _service.Add(dto);
          }
+
+        [HttpPut()]
+        public void EditCourse(EditCourseDto dto)
+        {
+            _service.Edit(dto);
+        }
     }
 }
 

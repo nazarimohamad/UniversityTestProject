@@ -16,7 +16,7 @@ namespace TestTools.Course
             return new CourseAppService(unitOfWork: _unitOfWork, repository: _repository);
         }
 
-        public static AddCourseDto GenerateCourseDto()
+        public static AddCourseDto GenerateAddCourseDto()
         {
             return new AddCourseDto
             {
@@ -24,11 +24,20 @@ namespace TestTools.Course
             };
         }
 
-        public static object GenerateCourse()
+        public static CourseModel GenerateCourse()
         {
             return new CourseModel
             {
                 Title = "فیزیک"
+            };
+        }
+
+        public static EditCourseDto GenerateEditCourseDto(int idOfEditingModel)
+        {
+            return new EditCourseDto
+            {
+                Id = idOfEditingModel,
+                Title = "ریاضی"
             };
         }
     }

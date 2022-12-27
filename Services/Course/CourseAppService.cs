@@ -18,14 +18,30 @@ namespace Services.Course
 
         public void Add(AddCourseDto dto)
         {
-            StopIfCourseIsDuplicated(dto);
+            StopIfCourseIsDuplicated(dto.Title);
             _repository.Add(GenerateCourse(dto));
             _unitOfWork.Compelete();
         }
 
-        private void StopIfCourseIsDuplicated(AddCourseDto dto)
+        public void Edit(EditCourseDto editedDto)
         {
-            if (_repository.IsExist(dto.Title))
+            StopIfCourseIsDuplicated(editedDto.Title);
+            _repository.Edit(GenerateEditedModel(editedDto));
+            _unitOfWork.Compelete();
+        }
+
+        private EditedCourseModel GenerateEditedModel(EditCourseDto editedDto)
+        {
+            return new EditedCourseModel
+            {
+                Id = editedDto.Id,
+                Title = editedDto.Title
+            };
+        }
+
+        private void StopIfCourseIsDuplicated(string title)
+        {
+            if (_repository.IsExist(title))
             {
                 throw new DuplicatedCourseException();
             }
