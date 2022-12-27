@@ -2,9 +2,9 @@
 
 namespace Services.Semester.Contract
 {
-    public interface SemsterRepository
+    public interface SemesterRepository
     {
-        void Add(SemesterModel model);
+        public void Add(SemesterModel model);
     }
 }
 

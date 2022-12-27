@@ -5,7 +5,7 @@ using Services.Semester.Contract;
 
 namespace PersistanceEF.Semsters
 {
-    public class EFSemesterRepository : SemsterRepository
+    public class EFSemesterRepository : SemesterRepository
     {
         private DbSet<SemesterModel> _semsters;
 

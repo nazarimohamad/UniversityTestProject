@@ -5,8 +5,6 @@ using FluentAssertions;
 using Services.Semester;
 using Entities.Semesters;
 using TestTools.Semester;
-using System.Data.Common;
-using Microsoft.EntityFrameworkCore.InMemory.Storage.Internal;
 using UnitTest.Infrastructure;
 
 namespace UnitTest.Semesters
@@ -22,6 +20,7 @@ namespace UnitTest.Semesters
             //DbConnection connection = Effort.DbConnectionFactory.CreateTransient();
 
             _dbContext = new EFInMemoryDatabase().CreateDataContext<EFDataContext>();
+            _sut = SemesterFactory.GenerateServices(_dbContext);
             
         }
 

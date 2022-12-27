@@ -7,10 +7,10 @@ namespace Services.Semester
 {
     public class SemesterAppService : SemesterService
     {
-        private SemsterRepository _semsters;
+        private SemesterRepository _semsters;
         private UnitOfWork _unitOfWork;
 
-        public SemesterAppService(SemsterRepository semsters, UnitOfWork unitOfWork)
+        public SemesterAppService(SemesterRepository semsters, UnitOfWork unitOfWork)
         {
             _semsters = semsters;
             _unitOfWork = unitOfWork;

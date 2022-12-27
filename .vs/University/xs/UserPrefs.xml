@@ -1,16 +1,5 @@
 ﻿<Properties StartupConfiguration="{9EE3FF2B-A808-4D82-9A7E-72B0B81A833D}|Default">
-  <MonoDevelop.Ide.ItemProperties.University PreferredExecutionTarget="/Applications/Safari.app" FirstBuild="True" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Infrastructure FirstBuild="True" />
-  <MonoDevelop.Ide.ItemProperties.PersistanceEF FirstBuild="True" />
-  <MonoDevelop.Ide.ItemProperties.TestTools FirstBuild="True" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.Entities FirstBuild="True" />
-  <MonoDevelop.Ide.ItemProperties.UnitTest FirstBuild="True" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.SpectTest FirstBuild="True" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Test/UnitTest/Semesters/SemeserServiceTest.cs">
     <Files>
       <File FileName="Test/UnitTest/SemeserServiceTest.cs" Line="12" Column="1" />
@@ -35,6 +24,16 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.SpectTest FirstBuild="True" />
+  <MonoDevelop.Ide.ItemProperties.TestTools FirstBuild="True" />
+  <MonoDevelop.Ide.ItemProperties.University FirstBuild="True" PreferredExecutionTarget="/Applications/Safari.app" />
+  <MonoDevelop.Ide.ItemProperties.PersistanceEF FirstBuild="True" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Migrations FirstBuild="True" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints />
+  <MonoDevelop.Ide.ItemProperties.UnitTest FirstBuild="True" />
+  <MonoDevelop.Ide.ItemProperties.Infrastructure FirstBuild="True" />
+  <MonoDevelop.Ide.ItemProperties.Entities FirstBuild="True" />
   <MonoDevelop.Ide.ItemProperties.Services FirstBuild="True" />
+  <MultiItemStartupConfigurations />
 </Properties>
