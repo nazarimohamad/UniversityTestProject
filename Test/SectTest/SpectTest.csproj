@@ -36,6 +36,8 @@
     <None Remove="Semester\AddSemesterSuccessfully\" />
     <None Remove="FluentAssertions" />
     <None Remove="Semester\DeleteSemester\" />
+    <None Remove="Cours\" />
+    <None Remove="Cours\AddCourse\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\PersistanceEF\PersistanceEF.csproj" />
@@ -49,5 +51,7 @@
     <Folder Include="Semester\" />
     <Folder Include="Semester\AddSemester\" />
     <Folder Include="Semester\DeleteSemester\" />
+    <Folder Include="Course\" />
+    <Folder Include="Course\AddCourse\" />
   </ItemGroup>
 </Project>

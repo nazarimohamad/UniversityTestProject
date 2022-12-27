@@ -10,11 +10,17 @@
     <None Remove="Semester\" />
     <None Remove="Semester\Contract\Dtos\" />
     <None Remove="Semester\Exceptions\" />
+    <None Remove="Course\" />
+    <None Remove="Course\Contract\" />
+    <None Remove="Course\Contract\Dtos\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Semester\" />
     <Folder Include="Semester\Contract\Dtos\" />
     <Folder Include="Semester\Exceptions\" />
+    <Folder Include="Course\" />
+    <Folder Include="Course\Contract\" />
+    <Folder Include="Course\Contract\Dtos\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Entities\Entities.csproj" />

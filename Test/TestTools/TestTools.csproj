@@ -22,9 +22,11 @@
 
   <ItemGroup>
     <None Remove="Semester\" />
+    <None Remove="Course\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Semester\" />
+    <Folder Include="Course\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Services\Services.csproj" />
