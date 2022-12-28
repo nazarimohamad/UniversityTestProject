@@ -1,15 +1,57 @@
 ﻿<Properties StartupConfiguration="{9EE3FF2B-A808-4D82-9A7E-72B0B81A833D}|Default">
+  <MonoDevelop.Ide.ItemProperties.Migrations PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.ItemProperties.SpectTest FirstBuild="True" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Test/UnitTest/Semesters/SemeserServiceTest.cs">
+  <MonoDevelop.Ide.ItemProperties.UnitTest FirstBuild="True" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workbench ActiveDocument="PersistanceEF/EFUnitOfWork.cs">
     <Files>
-      <File FileName="Test/UnitTest/SemeserServiceTest.cs" Line="12" Column="1" />
+      <File FileName="Services/Teacher/TeacherAppService.cs" Line="32" Column="1" />
+      <File FileName="PersistanceEF/Teacher/EFTeacherRepository.cs" Line="20" Column="1" />
+      <File FileName="PersistanceEF/EFUnitOfWork.cs" Line="16" Column="1" />
+      <File FileName="Services/TeacherCourse/TeacherCourseAppService.cs" Line="21" Column="37" />
+      <File FileName="Services/TeacherCourse/Contract/TeacherCourseRepository.cs" Line="7" Column="21" />
+      <File FileName="PersistanceEF/TeacherCourse/EFTeacherCourseRepository.cs" Line="15" Column="10" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="University" expanded="True">
-            <Node name="UnitTest" expanded="True" selected="True">
-              <Node name="Semesters" expanded="True" />
+            <Node name="Entities" expanded="True">
+              <Node name="Course" expanded="True" />
+              <Node name="Teacher" expanded="True" />
+              <Node name="TeacherCourse" expanded="True" />
+            </Node>
+            <Node name="PersistanceEF" expanded="True">
+              <Node name="Course" expanded="True" />
+              <Node name="Teacher" expanded="True" />
+              <Node name="TeacherCourse" expanded="True" />
+              <Node name="EFUnitOfWork.cs" selected="True" />
+            </Node>
+            <Node name="Services" expanded="True">
+              <Node name="Course" expanded="True">
+                <Node name="Contract" expanded="True" />
+              </Node>
+              <Node name="Teacher" expanded="True">
+                <Node name="Contract" expanded="True" />
+              </Node>
+              <Node name="TeacherCourse" expanded="True">
+                <Node name="Contract" expanded="True" />
+              </Node>
+            </Node>
+            <Node name="SpectTest" expanded="True">
+              <Node name="Teacher" expanded="True">
+                <Node name="AddTeacher" expanded="True" />
+              </Node>
+            </Node>
+            <Node name="TestTools" expanded="True">
+              <Node name="Teacher" expanded="True" />
+            </Node>
+            <Node name="UnitTest" expanded="True">
+              <Node name="Teacher" expanded="True" />
+            </Node>
+            <Node name="University" expanded="True">
+              <Node name="Controllers" expanded="True" />
             </Node>
           </Node>
         </State>
@@ -24,16 +66,17 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/payam/Projects/University/Services/Teacher/TeacherAppService.cs" relfile="Services/Teacher/TeacherAppService.cs" line="32" column="1" />
+      <Breakpoint file="/Users/payam/Projects/University/Services/Teacher/TeacherAppService.cs" relfile="Services/Teacher/TeacherAppService.cs" line="35" column="1" />
+      <Breakpoint file="/Users/payam/Projects/University/PersistanceEF/Teacher/EFTeacherRepository.cs" relfile="PersistanceEF/Teacher/EFTeacherRepository.cs" line="18" column="1" />
+      <Breakpoint file="/Users/payam/Projects/University/PersistanceEF/Teacher/EFTeacherRepository.cs" relfile="PersistanceEF/Teacher/EFTeacherRepository.cs" line="20" column="1" />
+      <Breakpoint file="/Users/payam/Projects/University/PersistanceEF/TeacherCourse/EFTeacherCourseRepository.cs" relfile="PersistanceEF/TeacherCourse/EFTeacherCourseRepository.cs" line="19" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.ItemProperties.TestTools FirstBuild="True" />
-  <MonoDevelop.Ide.ItemProperties.University FirstBuild="True" PreferredExecutionTarget="/Applications/Safari.app" />
-  <MonoDevelop.Ide.ItemProperties.PersistanceEF FirstBuild="True" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.Migrations FirstBuild="True" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints />
-  <MonoDevelop.Ide.ItemProperties.UnitTest FirstBuild="True" />
   <MonoDevelop.Ide.ItemProperties.Infrastructure FirstBuild="True" />
-  <MonoDevelop.Ide.ItemProperties.Entities FirstBuild="True" />
-  <MonoDevelop.Ide.ItemProperties.Services FirstBuild="True" />
-  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.University PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
 </Properties>

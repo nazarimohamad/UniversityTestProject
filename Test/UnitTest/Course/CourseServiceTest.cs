@@ -26,7 +26,7 @@ namespace UnitTest.Course
         {
             var _dto = CourseFactory.GenerateAddCourseDto();
 
-            _sut.Add(_dto);
+            _sut.AddCourse(_dto);
 
             var actual = _dbContext.Set<CourseModel>().First();
             actual.Title.Should().Be(_dto.Title);
@@ -40,7 +40,7 @@ namespace UnitTest.Course
             _dbContext.Manipulate(_ => _.Add(_course));
 
             var _duplicatedCourseDto = CourseFactory.GenerateAddCourseDto();
-            Action actual = () => _sut.Add(_duplicatedCourseDto);
+            Action actual = () => _sut.AddCourse(_duplicatedCourseDto);
 
             actual.Should().ThrowExactly<DuplicatedCourseException>();
             

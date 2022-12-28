@@ -32,11 +32,13 @@
     <None Remove="Infrastructure\" />
     <None Remove="Microsoft.EntityFrameworkCore.Sqlite" />
     <None Remove="Course\" />
+    <None Remove="Teacher\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Semesters\" />
     <Folder Include="Infrastructure\" />
     <Folder Include="Course\" />
+    <Folder Include="Teacher\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TestTools\TestTools.csproj" />

@@ -36,7 +36,7 @@ namespace SpectTest.Course.DeleteCourse
         {
             _Adddto = CourseFactory.GenerateAddCourseDto();
 
-            _sut.Add(_Adddto);
+            _sut.AddCourse(_Adddto);
         }
 
         [When(description: "یک درس با عنوان فیزیک را حذف میکنیم")]
@@ -46,7 +46,7 @@ namespace SpectTest.Course.DeleteCourse
                                         (_ => _.Title == _Adddto.Title);
             var idOfDeleteModel = modelForDelete.Id;
 
-            _sut.Delete(idOfDeleteModel);
+            _sut.DeleteCourse(idOfDeleteModel);
 
         }
 

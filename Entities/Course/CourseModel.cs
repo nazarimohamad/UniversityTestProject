@@ -1,14 +1,14 @@
-﻿namespace Entities.Course
+﻿using Entities.Teacher;
+using Entities.TeacherCourse;
+
+namespace Entities.Course
 {
     public class CourseModel
     {
-        public CourseModel()
-        {
-
-        }
-
+        public int Id { get; set; }
         public string Title { get; set; }
-        public Int32 Id { get; set; }
+
+        public HashSet<TeacherCourseModel>? TeacherCourses { get; set; }
     }
 }
 

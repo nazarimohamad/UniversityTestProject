@@ -3,16 +3,16 @@ using FluentMigrator;
 
 namespace Migrations.Migrations
 {
-    [Migration(20222127)]
-    public class _20221227_create_semester_table : Migration
+    [Migration(202221271036)]
+    public class _202212271036_create_semester_table : Migration
     {
-        public _20221227_create_semester_table()
+        public _202212271036_create_semester_table()
         {
         }
 
         public override void Up()
         {
-            Create.Table("Semester")
+            Create.Table("Semesters")
                   .WithColumn("Id").AsInt32().NotNullable().PrimaryKey().Identity()
                   .WithColumn("Number").AsInt32().NotNullable()
                   .WithColumn("Year").AsInt32().NotNullable();
@@ -20,7 +20,7 @@ namespace Migrations.Migrations
 
         public override void Down()
         {
-            Delete.Table("Semester");
+            Delete.Table("Semesters");
         }
     }
 }

@@ -16,19 +16,19 @@ namespace University.Controllers
          [HttpPost()]
          public void AddCourse([FromBody]AddCourseDto dto)
          {
-             _service.Add(dto);
+             _service.AddCourse(dto);
          }
 
         [HttpPut()]
         public void EditCourse([FromBody]EditCourseDto dto)
         {
-            _service.Edit(dto);
+            _service.EditCourse(dto);
         }
 
         [HttpDelete()]
         public void DeleteCourse(int id)
         {
-            _service.Delete(id);
+            _service.DeleteCourse(id);
         }
     }
 }

@@ -10,11 +10,16 @@ namespace PersistanceEF.Course
 
         public void Configure(EntityTypeBuilder<CourseModel> builder)
         {
-            builder.ToTable("Course");
+            builder.ToTable("Courses");
 
             builder.HasKey(_ => _.Id);
             builder.Property(_ => _.Id).ValueGeneratedOnAdd().IsRequired();
             builder.Property(_ => _.Title).IsRequired().HasMaxLength(100);
+
+            builder.HasMany(_ => _.TeacherCourses)
+                   .WithOne(_ => _.Course)
+                   .HasForeignKey(_ => _.CourseId)
+                   .OnDelete(DeleteBehavior.SetNull);
         }
     }
 }

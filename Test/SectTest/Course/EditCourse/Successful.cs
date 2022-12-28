@@ -39,7 +39,7 @@ namespace SpectTest.Course.EditCourse
         {
             _Adddto = CourseFactory.GenerateAddCourseDto();
 
-            _sut.Add(_Adddto);
+            _sut.AddCourse(_Adddto);
         }
 
         [When(description: "یک درس با عنوان فیزیک را به ریاضی تفییر میدهیم")]
@@ -51,7 +51,7 @@ namespace SpectTest.Course.EditCourse
 
             var editedDto = CourseFactory.GenerateEditCourseDto(idOfEditingModel);
 
-            _sut.Edit(editedDto);
+            _sut.EditCourse(editedDto);
         }
 
         [Then(description: "باید تنها یک درس با عنوان ریاضی" +

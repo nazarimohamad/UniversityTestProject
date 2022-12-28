@@ -13,7 +13,7 @@ namespace PersistanceEF.Semsters
 
         public void Configure(EntityTypeBuilder<SemesterModel> builder)
         {
-            builder.ToTable("Semester");
+            builder.ToTable("Semesters");
 
             builder.HasKey(_ => _.Id);
 

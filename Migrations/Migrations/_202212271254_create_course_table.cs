@@ -11,14 +11,14 @@ namespace Migrations.Migrations
 
         public override void Up()
         {
-            Create.Table("Course")
+            Create.Table("Courses")
                     .WithColumn("Id").AsInt32().Identity().PrimaryKey().NotNullable()
                    .WithColumn("Title").AsString(100).NotNullable();
         }
 
         public override void Down()
         {
-            Delete.Table("Course");
+            Delete.Table("Courses");
         }
     }
 }

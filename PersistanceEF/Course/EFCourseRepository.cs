@@ -8,37 +8,47 @@ namespace PersistanceEF.Course
 {
     public class EFCourseRepository : CourseRepository
     {
-        private readonly DbSet<CourseModel> _course;
+        private readonly DbSet<CourseModel> _courses;
         public EFCourseRepository(EFDataContext dbContext)
         {
-            _course = dbContext.Set<CourseModel>();
+            _courses = dbContext.Set<CourseModel>();
         }
 
         public void Add(CourseModel course)
         {
-            _course.Add(course);
+            _courses.Add(course);
         }
 
         public void Edit(EditedCourseModel editedCourseModel)
         {
-            var findedCourseForEdit = _course.SingleOrDefault
+            var findedCourseForEdit = _courses.SingleOrDefault
                                             (_ => _.Id == editedCourseModel.Id);
             findedCourseForEdit!.Title = editedCourseModel.Title;
         }
 
         public void Delete(CourseModel course)
         {
-            _course.Remove(course!);
+            _courses.Remove(course!);
         }
 
         public bool IsExist(string title)
         {
-            return _course.Any(_ => _.Title == title);
+            return _courses.Any(_ => _.Title == title);
         }
 
         public CourseModel Find(int id)
         {
-            return _course.SingleOrDefault(_ => _.Id == id)!; 
+            return _courses.SingleOrDefault(_ => _.Id == id)!; 
+        }
+
+        public HashSet<CourseModel> FindCoursesById(List<int> courseIds)
+        {
+            var _findedCourses = new HashSet<CourseModel>();
+            foreach (var id in courseIds)
+            {
+                _findedCourses.Add(_courses.SingleOrDefault(_ => _.Id == id)!);
+            }
+            return _findedCourses;
         }
     }
 }

@@ -38,7 +38,7 @@ namespace SpectTest.Course.AddCourse
         {
             _dto = CourseFactory.GenerateAddCourseDto();
 
-            _sut.Add(_dto);
+            _sut.AddCourse(_dto);
         }
 
         [Then(description: "باید یک درس با عنوان فیزیک" +

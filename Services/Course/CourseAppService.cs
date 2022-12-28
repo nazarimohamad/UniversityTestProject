@@ -16,25 +16,30 @@ namespace Services.Course
             _unitOfWork = unitOfWork;
         }
 
-        public void Add(AddCourseDto dto)
+        public void AddCourse(AddCourseDto dto)
         {
             StopIfCourseIsDuplicated(dto.Title);
             _repository.Add(GenerateCourse(dto));
             _unitOfWork.Compelete();
         }
 
-        public void Edit(EditCourseDto editedDto)
+        public void EditCourse(EditCourseDto editedDto)
         {
             StopIfCourseIsDuplicated(editedDto.Title);
             _repository.Edit(GenerateEditedModel(editedDto));
             _unitOfWork.Compelete();
         }
 
-        public void Delete(int idForDelete)
+        public void DeleteCourse(int idForDelete)
         {
             StopIfThereIsNoCourse(idForDelete);
             _repository.Delete(FindCourseById(idForDelete));
             _unitOfWork.Compelete();
+        }
+
+        public HashSet<CourseModel> FindCoursesByIds(List<int> coursesId)
+        {
+            return _repository.FindCoursesById(coursesId);
         }
 
         private void StopIfThereIsNoCourse(int idForDelete)

@@ -6,6 +6,11 @@ using PersistanceEF.Semsters;
 using Services.SharedContracts;
 using Services.Course.Contract;
 using Services.Semester.Contract;
+using Services.Teacher;
+using PersistanceEF.Teacher;
+using Services.TeacherCourse.Contract;
+using Services.TeacherCourse;
+using PersistanceEF.TeacherCourse;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,9 +25,13 @@ builder.Services.AddDbContext<EFDataContext>();
 //service
 builder.Services.AddScoped<SemesterService, SemesterAppService>();
 builder.Services.AddScoped<CourseService, CourseAppService>();
+builder.Services.AddScoped<TeacherService, TeacherAppService>();
+builder.Services.AddScoped<TeacherCourseService, TeacherCourseAppService>();
 //repository
 builder.Services.AddScoped<SemesterRepository, EFSemesterRepository>();
 builder.Services.AddScoped<CourseRepository, EFCourseRepository>();
+builder.Services.AddScoped<TeacherRepository, EFTeacherRepository>();
+builder.Services.AddScoped<TeacherCourseRepository, EFTeacherCourseRepository>();
 //unit of work
 builder.Services.AddTransient<UnitOfWork, EFUnitOfWork>();
 

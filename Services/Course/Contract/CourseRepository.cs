@@ -1,5 +1,4 @@
 ﻿using Entities.Course;
-using Services.Course.Contract.Dtos;
 
 namespace Services.Course.Contract
 {
@@ -10,5 +9,6 @@ namespace Services.Course.Contract
         void Edit(EditedCourseModel editedCourseModel);
         void Delete(CourseModel course);
         CourseModel Find(int id);
+        HashSet<CourseModel> FindCoursesById(List<int> courseIds);
     }
 }

@@ -14,6 +14,11 @@
     <None Remove="Course\Contract\" />
     <None Remove="Course\Contract\Dtos\" />
     <None Remove="Course\Exceptions\" />
+    <None Remove="Teacher\" />
+    <None Remove="Teacher\Contract\" />
+    <None Remove="Teacher\Contract\Dtos\" />
+    <None Remove="TeacherCourse\" />
+    <None Remove="TeacherCourse\Contract\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Semester\" />
@@ -23,6 +28,11 @@
     <Folder Include="Course\Contract\" />
     <Folder Include="Course\Contract\Dtos\" />
     <Folder Include="Course\Exceptions\" />
+    <Folder Include="Teacher\" />
+    <Folder Include="Teacher\Contract\" />
+    <Folder Include="Teacher\Contract\Dtos\" />
+    <Folder Include="TeacherCourse\" />
+    <Folder Include="TeacherCourse\Contract\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Entities\Entities.csproj" />

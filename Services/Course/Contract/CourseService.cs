@@ -4,8 +4,8 @@ namespace Services.Course.Contract
 {
     public interface CourseService
     {
-        public void Add(AddCourseDto dto);
-        void Edit(EditCourseDto dto);
-        void Delete(int id);
+        public void AddCourse(AddCourseDto dto);
+        void EditCourse(EditCourseDto dto);
+        void DeleteCourse(int id);
     }
 }

@@ -36,7 +36,7 @@ namespace SpectTest.Course.AddCourse
         {
             _dto = CourseFactory.GenerateAddCourseDto();
 
-            _sut.Add(_dto);
+            _sut.AddCourse(_dto);
         }
 
         [When(description: "یک درس با عنوان فیزیک را اضافه میکنیم")]
@@ -44,7 +44,7 @@ namespace SpectTest.Course.AddCourse
         {
             _dto = CourseFactory.GenerateAddCourseDto();
 
-            _sut.Add(_dto);
+            _sut.AddCourse(_dto);
         }
 
         [Then(description: "تنها یک درس با عنوان فیزیک در فهرست درس های دانشگاه" +
