@@ -46,7 +46,7 @@ namespace SpectTest.Semester.AddSemester
         [Then(description: "باید تنها یک ترم در فهرست ترم های دانشگاه" +
             "وحود داشته باشد و خطای ترم تکراری است رخ دهد")]
             
-            public void Then()
+         public void Then()
         {
             
         }

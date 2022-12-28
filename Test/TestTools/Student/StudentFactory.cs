@@ -14,12 +14,12 @@ namespace TestTools.Student
             return new StudentAppService(_repository, _unitOfWork);
         }
 
-        public static AddStudentDto GenerateAddStudentDto()
+        public static AddStudentDto GenerateAddStudentDto(string nationalCode = "2233")
         {
             return new AddStudentDto
             {
                 FullName = "حسن",
-                NationalCode = "2233"
+                NationalCode = nationalCode
             };
         }
     }

@@ -5,5 +5,7 @@ namespace Services.Student.Contract
     public interface StudentService
     {
         void Add(AddStudentDto dto);
+        List<GetStudentDto> GetAll();
+        void Delete(int id);
     }
 }
