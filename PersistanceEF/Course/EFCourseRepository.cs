@@ -14,6 +14,17 @@ namespace PersistanceEF.Course
             _courses = dbContext.Set<CourseModel>();
         }
 
+        public List<GetCourseDto> GetAll()
+        {
+            return _courses.Select(_ =>
+                  new GetCourseDto
+                  {
+                      Id = _.Id,
+                      Title = _.Title
+                  }
+               ).ToList();
+        }
+
         public void Add(CourseModel course)
         {
             _courses.Add(course);

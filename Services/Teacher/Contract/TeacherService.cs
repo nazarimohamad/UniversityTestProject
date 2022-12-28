@@ -1,4 +1,5 @@
-﻿using Services.Teacher.Contract.Dtos;
+﻿using Entities.Teacher;
+using Services.Teacher.Contract.Dtos;
 
 namespace Services.Teacher
 {
@@ -6,5 +7,6 @@ namespace Services.Teacher
     {
         int AddTeacher(AddTeacherDto dto);
         void Delete(int id);
+        List<GetTeacherDto> GetAll();
     }
 }

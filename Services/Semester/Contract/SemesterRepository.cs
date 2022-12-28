@@ -1,4 +1,5 @@
 ﻿using Entities.Semesters;
+using Services.Semester.Contract.Dtos;
 
 namespace Services.Semester.Contract
 {
@@ -8,6 +9,7 @@ namespace Services.Semester.Contract
         bool isExist(int number, int year);
         SemesterModel? Find(int id);
         void Delete(SemesterModel model);
+        List<GetSemesterDto> GetAll();
     }
 }
 

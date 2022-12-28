@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Entities.Teacher;
+using Microsoft.AspNetCore.Mvc;
 using Services.Teacher;
 using Services.Teacher.Contract.Dtos;
 
@@ -11,6 +12,12 @@ namespace University.Controllers
         public TeacherController(TeacherService service)
         {
             _service = service;
+        }
+
+        [HttpGet()]
+        public List<GetTeacherDto> Add()
+        {
+            return _service.GetAll();
         }
 
         [HttpPost()]

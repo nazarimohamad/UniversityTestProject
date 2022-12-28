@@ -17,6 +17,11 @@ namespace Services.Semester
             _unitOfWork = unitOfWork;
         }
 
+        public List<GetSemesterDto> GetAll()
+        {
+            return _semsters.GetAll();
+        }
+
         public void Add(AddSemesterDto dto)
         {
             StopIfSemesterExist(dto);

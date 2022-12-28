@@ -1,6 +1,7 @@
 ﻿using Entities.Semesters;
 using Services.Semester.Contract;
 using Microsoft.EntityFrameworkCore;
+using Services.Semester.Contract.Dtos;
 
 namespace PersistanceEF.Semsters
 {
@@ -26,6 +27,17 @@ namespace PersistanceEF.Semsters
         public SemesterModel? Find(int id)
         {
             return _semsters.SingleOrDefault(_ => _.Id == id);
+        }
+
+        public List<GetSemesterDto> GetAll()
+        {
+            return _semsters.Select(_ =>
+                new GetSemesterDto
+                {
+                    Number = _.Number,
+                    year = _.Year
+                }
+            ).ToList();
         }
 
         public bool isExist(int number, int year)

@@ -42,7 +42,7 @@ namespace SpectTest.Course.DeleteCourse
         [When(description: "یک درس با عنوان فیزیک را حذف میکنیم")]
         public void When()
         {
-            var modelForDelete = _dbContext.Set<CourseModel>().SingleOrDefault
+            var modelForDelete = _dbContext.Set<GetCourseDto>().SingleOrDefault
                                         (_ => _.Title == _Adddto.Title);
             var idOfDeleteModel = modelForDelete.Id;
 
@@ -54,7 +54,7 @@ namespace SpectTest.Course.DeleteCourse
             " وجود نداشته باشد")]
         public void Then()
         {
-            var actual = _dbContext.Set<CourseModel>().First();
+            var actual = _dbContext.Set<GetCourseDto>().First();
             actual.Should().BeNull();
         }
 

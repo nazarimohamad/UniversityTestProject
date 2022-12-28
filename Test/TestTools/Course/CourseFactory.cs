@@ -24,9 +24,9 @@ namespace TestTools.Course
             };
         }
 
-        public static CourseModel GenerateCourse()
+        public static Entities.Course.CourseModel GenerateCourse()
         {
-            return new CourseModel
+            return new Entities.Course.CourseModel
             {
                 Title = "فیزیک"
             };

@@ -2,6 +2,7 @@
 using Entities.Teacher;
 using Services.Teacher;
 using Microsoft.EntityFrameworkCore;
+using Services.Teacher.Contract.Dtos;
 
 namespace PersistanceEF.Teacher
 {
@@ -26,6 +27,18 @@ namespace PersistanceEF.Teacher
         public TeacherModel FindById(int id)
         {
             return _teachers.SingleOrDefault(_ => _.Id == id)!;
+        }
+
+        public List<GetTeacherDto> GetAll()
+        {
+            return _teachers.Select(_ =>
+                new GetTeacherDto
+                {
+                    FirstName = _.FirstName,
+                    LastName = _.LastName,
+                    Code = _.Code
+                }
+            ).ToList();
         }
 
         public bool IsExcist(int code)

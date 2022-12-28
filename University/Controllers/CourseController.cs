@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Entities.Course;
+using Microsoft.AspNetCore.Mvc;
 using Services.Course.Contract;
 using Services.Course.Contract.Dtos;
 
@@ -13,7 +14,13 @@ namespace University.Controllers
             _service = service;
         }
 
-         [HttpPost()]
+        [HttpGet()]
+        public List<GetCourseDto> GetAll()
+        {
+            return _service.GetAll();
+        }
+
+        [HttpPost()]
          public void AddCourse([FromBody]AddCourseDto dto)
          {
              _service.AddCourse(dto);

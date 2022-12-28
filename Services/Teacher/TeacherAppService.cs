@@ -1,13 +1,10 @@
-﻿using Entities.Course;
-using Entities.Teacher;
+﻿using Entities.Teacher;
 using Entities.TeacherCourse;
-using Services.Course;
-using Services.Course.Contract;
-using Services.SharedContracts;
-using Services.Teacher.Contract.Dtos;
-using Services.Teacher.Exceptions;
 using Services.TeacherCourse;
+using Services.SharedContracts;
+using Services.Teacher.Exceptions;
 using Services.TeacherCourse.Contract;
+using Services.Teacher.Contract.Dtos;
 
 namespace Services.Teacher
 {
@@ -26,6 +23,11 @@ namespace Services.Teacher
             _teacherCourseRepository = teacherCourseRepository;
             _unitOfWork = unitOfWork;
             _teacherCourseAppService = new TeacherCourseAppService(_unitOfWork, _teacherCourseRepository);
+        }
+
+        public List<GetTeacherDto> GetAll()
+        {
+            return _teacherRepository.GetAll();
         }
 
         public int AddTeacher(AddTeacherDto dto)

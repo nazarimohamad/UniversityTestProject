@@ -1,8 +1,8 @@
 ﻿using Entities.Course;
 using Services.Course.Contract;
 using Services.SharedContracts;
-using Services.Course.Contract.Dtos;
 using Services.Course.Exceptions;
+using Services.Course.Contract.Dtos;
 
 namespace Services.Course
 {
@@ -14,6 +14,11 @@ namespace Services.Course
         {
             _repository = repository;
             _unitOfWork = unitOfWork;
+        }
+
+        public List<GetCourseDto> GetAll()
+        {
+            return _repository.GetAll();
         }
 
         public void AddCourse(AddCourseDto dto)

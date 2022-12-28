@@ -1,4 +1,5 @@
-﻿using Services.Course.Contract.Dtos;
+﻿using Entities.Course;
+using Services.Course.Contract.Dtos;
 
 namespace Services.Course.Contract
 {
@@ -7,5 +8,6 @@ namespace Services.Course.Contract
         public void AddCourse(AddCourseDto dto);
         void EditCourse(EditCourseDto dto);
         void DeleteCourse(int id);
+        List<GetCourseDto> GetAll();
     }
 }

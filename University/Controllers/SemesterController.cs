@@ -1,4 +1,4 @@
-﻿using System;
+﻿using Entities.Semesters;
 using Microsoft.AspNetCore.Mvc;
 using Services.Semester.Contract;
 using Services.Semester.Contract.Dtos;
@@ -14,13 +14,19 @@ namespace University.Controllers
             _service = service;
         }
 
-        [HttpPost]
+        [HttpGet()]
+        public List<GetSemesterDto> GetAll()
+        {
+            return _service.GetAll();
+        }
+
+        [HttpPost()]
         public void Add([FromBody] AddSemesterDto dto)
         {
             _service.Add(dto);
         }
 
-        [HttpDelete]
+        [HttpDelete()]
         public void Delete(int id)
         {
             _service.Delete(id);

@@ -1,4 +1,4 @@
-﻿using System;
+﻿using Entities.Semesters;
 using Services.Semester.Contract.Dtos;
 
 namespace Services.Semester.Contract
@@ -7,6 +7,7 @@ namespace Services.Semester.Contract
     {
         public void Add(AddSemesterDto dto);
         void Delete(int idForDelete);
+        List<GetSemesterDto> GetAll();
     }
 }
 

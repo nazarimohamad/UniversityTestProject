@@ -45,7 +45,7 @@ namespace SpectTest.Course.AddCourse
             " در فهرست درس های دانشگاه وجود داشته باشد")]
         public void Then()
         {
-            var actual = _dbContext.Set<CourseModel>().First();
+            var actual = _dbContext.Set<GetCourseDto>().First();
             actual.Title.Should().Be(_dto.Title);
         }
 
