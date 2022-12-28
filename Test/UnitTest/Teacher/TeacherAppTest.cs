@@ -1,13 +1,13 @@
-﻿using System;
+﻿using Xunit;
+using System;
 using System.Linq;
-using Entities.Teacher;
-using FluentAssertions;
 using PersistanceEF;
 using Services.Teacher;
-using Services.Teacher.Exceptions;
+using FluentAssertions;
 using TestTools.Teacher;
+using Entities.Teacher;
 using UnitTest.Infrastructure;
-using Xunit;
+using Services.Teacher.Exceptions;
 
 namespace UnitTest.Teacher
 {

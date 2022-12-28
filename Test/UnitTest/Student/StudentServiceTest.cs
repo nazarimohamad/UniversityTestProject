@@ -49,6 +49,29 @@ namespace UnitTest.Student
         }
 
         [Fact]
+        public void Edit_student_Properly()
+        {
+            string _nationalCode = "2233";
+            string _editedName = "علی";
+            var _dto = StudentFactory.GenerateAddStudentDto(_nationalCode);
+            _dbContext.Manipulate(_ => _.Add(_dto));
+            var _modelForEdit = _dbContext.Set<StudentModel>()
+                                            .SingleOrDefault(_ =>
+                                            _.NationalCode == _nationalCode);
+            var _idForDelete = _modelForEdit.Id;
+            var _editedDto = StudentFactory.GenerateEditStudentDto(_editedName);
+
+            _sut.Edit(_idForDelete, _editedDto);
+
+            var actual = _dbContext.Set<StudentModel>()
+                                            .SingleOrDefault(_ =>
+                                            _.NationalCode == _nationalCode);
+
+            actual.FullName.Should().Be(_editedDto.FullName);
+            actual.NationalCode.Should().Be(_editedDto.NationalCode);
+        }
+
+        [Fact]
         public void Delete_student_by_id()
         {
             string _nationalCode = "2233";

@@ -26,6 +26,12 @@ namespace University.Controllers
             _service.Add(dto);
         }
 
+        [HttpPut()]
+        public void Edit(int id, [FromBody] EditStudentDto dto)
+        {
+            _service.Edit(id, dto);
+        }
+
         [HttpDelete()]
         public void Delete(int id)
         {

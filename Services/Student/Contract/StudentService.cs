@@ -7,5 +7,6 @@ namespace Services.Student.Contract
         void Add(AddStudentDto dto);
         List<GetStudentDto> GetAll();
         void Delete(int id);
+        void Edit(int id, EditStudentDto dto);
     }
 }

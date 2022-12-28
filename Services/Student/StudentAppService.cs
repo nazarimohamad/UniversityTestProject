@@ -29,12 +29,35 @@ namespace Services.Student
             _unitOfWork.Compelete();
         }
 
+        public void Edit(int id, EditStudentDto dto)
+        {
+            StopIfNationalCodeIsDuplicated(dto.NationalCode);
+            var _findedModel = FindStudentById(id);
+            StopIfThereIsNoStudent(_findedModel);
+            var _editedModel = GenerateEditedModel(_findedModel, dto);
+            _repository.Delete(_findedModel);
+            _repository.Add(_editedModel);
+            _unitOfWork.Compelete();
+        }
+
         public void Delete(int idForDelete)
         {
             var studentForDelete = FindStudentById(idForDelete);
             StopIfThereIsNoStudent(studentForDelete);
             _repository.Delete(studentForDelete);
             _unitOfWork.Compelete();
+        }
+
+        private StudentModel GenerateEditedModel(
+                                    StudentModel findedModel,
+                                    EditStudentDto dto)
+        {
+            return new StudentModel
+            {
+                Id = findedModel.Id,
+                FullName = dto.FullName,
+                NationalCode = dto.NationalCode
+            };
         }
 
         private void StopIfThereIsNoStudent(StudentModel student)

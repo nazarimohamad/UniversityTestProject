@@ -2,6 +2,7 @@
 using Services.Student;
 using PersistanceEF.Student;
 using Services.Student.Contract.Dtos;
+using System;
 
 namespace TestTools.Student
 {
@@ -20,6 +21,15 @@ namespace TestTools.Student
             {
                 FullName = "حسن",
                 NationalCode = nationalCode
+            };
+        }
+
+        public static EditStudentDto GenerateEditStudentDto(string editedName = "علی")
+        {
+            return new EditStudentDto
+            {
+                FullName = editedName,
+                NationalCode = "2233"
             };
         }
     }
