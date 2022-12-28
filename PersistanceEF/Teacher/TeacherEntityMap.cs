@@ -1,5 +1,4 @@
-﻿using System;
-using Entities.Teacher;
+﻿using Entities.Teacher;
 using Entities.TeacherCourse;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -21,10 +20,10 @@ namespace PersistanceEF.Teacher
             builder.Property("LastName").IsRequired().HasMaxLength(50);
             builder.Property("Code").IsRequired();
 
-            //builder.HasMany<TeacherCourseModel>(_ => _.TeacherCourses)
-            //        .WithOne(_ => _.Teacher)
-            //        .HasForeignKey(_ => _.TeacherId)
-            //        .OnDelete(DeleteBehavior.SetNull);
+            builder.HasMany<TeacherCourseModel>(_ => _.TeacherCourses)
+                    .WithOne(_ => _.Teacher)
+                    .HasForeignKey(_ => _.TeacherId)
+                    .OnDelete(DeleteBehavior.SetNull);
 
         }
     }

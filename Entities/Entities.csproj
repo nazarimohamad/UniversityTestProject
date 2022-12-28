@@ -11,11 +11,13 @@
     <None Remove="Course\" />
     <None Remove="Teacher\" />
     <None Remove="CourseTeacher\" />
+    <None Remove="Student\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Semsters\" />
     <Folder Include="Course\" />
     <Folder Include="Teacher\" />
     <Folder Include="TeacherCourse\" />
+    <Folder Include="Student\" />
   </ItemGroup>
 </Project>

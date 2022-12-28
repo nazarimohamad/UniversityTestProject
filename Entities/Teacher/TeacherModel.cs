@@ -1,5 +1,4 @@
-﻿using Entities.Course;
-using Entities.TeacherCourse;
+﻿using Entities.TeacherCourse;
 
 namespace Entities.Teacher
 {
