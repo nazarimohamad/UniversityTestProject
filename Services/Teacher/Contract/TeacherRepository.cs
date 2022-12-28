@@ -6,5 +6,7 @@ namespace Services.Teacher
     {
         void Add(TeacherModel teacherModel);
         bool IsExcist(int code);
+        void Delete(TeacherModel teacher);
+        TeacherModel FindById(int id);
     }
 }

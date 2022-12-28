@@ -18,6 +18,16 @@ namespace PersistanceEF.Teacher
              _teachers.Add(teacherModel);
         }
 
+        public void Delete(TeacherModel teacher)
+        {
+            _teachers.Remove(teacher);
+        }
+
+        public TeacherModel FindById(int id)
+        {
+            return _teachers.SingleOrDefault(_ => _.Id == id)!;
+        }
+
         public bool IsExcist(int code)
         {
             return _teachers.Any(_ => _.Code == code);

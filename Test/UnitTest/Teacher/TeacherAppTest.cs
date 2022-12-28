@@ -13,12 +13,12 @@ namespace UnitTest.Teacher
 {
     public class TeacherAppTest
     {
-        private readonly EFDataContext _dbcontect;
+        private readonly EFDataContext _dbContext;
         private readonly TeacherAppService _sut;
         public TeacherAppTest()
         {
-            _dbcontect = new EFInMemoryDatabase().CreateDataContext<EFDataContext>();
-            _sut = TeacherFactory.GenerateServices(_dbcontect);
+            _dbContext = new EFInMemoryDatabase().CreateDataContext<EFDataContext>();
+            _sut = TeacherFactory.GenerateServices(_dbContext);
         }
 
         [Fact]
@@ -27,7 +27,7 @@ namespace UnitTest.Teacher
             var _addDto = TeacherFactory.GenerateAddTeacherDto();
             _sut.AddTeacher(_addDto);
 
-            var actual = _dbcontect.Set<TeacherModel>().First();
+            var actual = _dbContext.Set<TeacherModel>().First();
 
             actual.FirstName.Should().Be(_addDto.FirstName);
             actual.LastName.Should().Be(_addDto.LastName);
@@ -46,6 +46,20 @@ namespace UnitTest.Teacher
 
             Action actual = () => _sut.AddTeacher(_duplicatedTeacherCodeDto);
             actual.Should().ThrowExactly<DuplicatedTeacherCodeException>();
+        }
+
+        [Fact]
+        public void Delete_teacher_with_no_course_properly()
+        {
+            var _addDto = TeacherFactory.GenerateAddTeacherDto();
+            _dbContext.Manipulate(_ => _.Add(_addDto));
+
+            var _idForDelete = _dbContext.Set<TeacherModel>().
+                                            SingleOrDefault(
+                                                _ => _.Code == _addDto.Code)!.Id;
+
+            Action actual = () => _sut.Delete(_idForDelete);
+            actual.Should().BeNull();
         }
     }
 }

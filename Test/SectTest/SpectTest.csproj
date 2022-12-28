@@ -42,6 +42,7 @@
     <None Remove="Course\DeleteCourse\" />
     <None Remove="Teacher\" />
     <None Remove="Teacher\AddTeacher\" />
+    <None Remove="Teacher\Edit\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\PersistanceEF\PersistanceEF.csproj" />
@@ -61,5 +62,6 @@
     <Folder Include="Course\DeleteCourse\" />
     <Folder Include="Teacher\" />
     <Folder Include="Teacher\AddTeacher\" />
+    <Folder Include="Teacher\Edit\" />
   </ItemGroup>
 </Project>

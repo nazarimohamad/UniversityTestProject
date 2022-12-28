@@ -45,6 +45,19 @@ namespace UnitTest.Course
             actual.Should().ThrowExactly<DuplicatedCourseException>();
             
         }
+
+        [Fact]
+        public void Delete_course_properly()
+        {
+            var _course = CourseFactory.GenerateCourse();
+            _dbContext.Manipulate(_ => _.Add(_course));
+            var idForDelete = _dbContext.Set<CourseModel>().
+                                            SingleOrDefault(
+                                                _ => _.Title == _course.Title)!.Id;
+            Action actual = () => _sut.DeleteCourse(idForDelete);
+
+            actual.Should().BeNull();
+        }
     }
 }
 

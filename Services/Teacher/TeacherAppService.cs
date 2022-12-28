@@ -39,6 +39,18 @@ namespace Services.Teacher
             return teacherModel.Id;
         }
 
+        public void Delete(int id)
+        {
+
+            _teacherRepository.Delete(FindTeacherById(id));
+            _unitOfWork.Compelete();
+        }
+
+        private TeacherModel FindTeacherById(int id)
+        {
+            return _teacherRepository.FindById(id);
+        }
+
         private void AddTeacherCourses(HashSet<TeacherCourseModel> teacherCourses)
         {
               _teacherCourseAppService.AddTeacherCourse(teacherCourses);
