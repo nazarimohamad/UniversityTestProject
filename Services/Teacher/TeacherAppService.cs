@@ -5,6 +5,7 @@ using Services.Course;
 using Services.Course.Contract;
 using Services.SharedContracts;
 using Services.Teacher.Contract.Dtos;
+using Services.Teacher.Exceptions;
 using Services.TeacherCourse;
 using Services.TeacherCourse.Contract;
 
@@ -29,6 +30,7 @@ namespace Services.Teacher
 
         public int AddTeacher(AddTeacherDto dto)
         {
+            StopIfDuplicateTeacherCode(dto.Code);
             var teacherModel = GenerateTeacherModel(dto);
              _teacherRepository.Add(teacherModel);
             _unitOfWork.Compelete();
@@ -40,6 +42,14 @@ namespace Services.Teacher
         private void AddTeacherCourses(HashSet<TeacherCourseModel> teacherCourses)
         {
               _teacherCourseAppService.AddTeacherCourse(teacherCourses);
+        }
+
+        private void StopIfDuplicateTeacherCode(int code)
+        {
+            if (_teacherRepository.IsExcist(code))
+            {
+                throw new DuplicatedTeacherCodeException();
+            }
         }
 
         private HashSet<TeacherCourseModel> GenerateTeacherCourseModel(int teacherId, List<int> coursesId)

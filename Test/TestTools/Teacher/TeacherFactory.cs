@@ -23,13 +23,13 @@ namespace TestTools.Teacher
             return new TeacherAppService(_teacherRepository, _teacherCourseRepository, _unitOfWork);
         }
 
-        public static AddTeacherDto GenerateAddTeacherDto()
+        public static AddTeacherDto GenerateAddTeacherDto(int code = 21)
         {
             return new AddTeacherDto
             {
                 FirstName = "علی",
                 LastName = "حسن",
-                Code = 21,
+                Code = code,
                 CoursesId = new List<int>() {1}
             };
         }

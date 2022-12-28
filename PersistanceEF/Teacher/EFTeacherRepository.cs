@@ -17,6 +17,11 @@ namespace PersistanceEF.Teacher
         {
              _teachers.Add(teacherModel);
         }
+
+        public bool IsExcist(int code)
+        {
+            return _teachers.Any(_ => _.Code == code);
+        }
     }
 }
 
